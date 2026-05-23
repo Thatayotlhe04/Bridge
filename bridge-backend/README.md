@@ -5,7 +5,7 @@ The smallest version of the Bridge cloud that actually does the thing: capture m
 ## What this is
 
 - **Hono** API on Node 20+, deployable to Render / Fly / Railway in minutes
-- **Neon Postgres** (serverless) via **Drizzle ORM**
+- **Postgres** (Neon or Supabase Postgres) via **Drizzle ORM**
 - **API-key auth** (simple bearer token — swap for Clerk when you have real users)
 - Three endpoints:
   - `POST /v1/workspaces` — get-or-create a workspace by `project_id_hash`
@@ -98,3 +98,8 @@ Either should cost ~$5–7/month at v0 scale.
 3. **`bridge` CLI** — `bridge init`, `bridge status`, `bridge sync now`. Handles the `.bridge/project-id` file.
 
 Say the word and I'll scaffold each.
+
+
+## Supabase note
+
+If you prefer Supabase, paste your Supabase Postgres connection string into `DATABASE_URL`. The backend is plain Postgres-compatible and requires no provider-specific changes.
