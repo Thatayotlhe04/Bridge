@@ -7,12 +7,12 @@ import { drizzle } from "drizzle-orm/neon-http";
 import { and, eq, gte, asc } from "drizzle-orm";
 import { z } from "zod";
 import { randomBytes } from "node:crypto";
-import { users, workspaces, memories } from "./db/schema.js";
+import { users, workspaces, memories, demoRequests } from "./db/schema.js";
 
 // ─── DB ──────────────────────────────────────────────────────────────────────
 
 const sql = neon(process.env.DATABASE_URL!);
-const db = drizzle(sql, { schema: { users, workspaces, memories } });
+const db = drizzle(sql, { schema: { users, workspaces, memories, demoRequests } });
 
 // ─── App ─────────────────────────────────────────────────────────────────────
 
@@ -23,6 +23,36 @@ app.use("*", logger());
 app.use("*", cors({ origin: "*" }));
 
 app.get("/", (c) => c.json({ ok: true, service: "bridge", version: "0.1.0" }));
+
+
+const demoRequestBody = z.object({
+  name: z.string().min(2).max(120),
+  email: z.string().email(),
+  company: z.string().max(120).optional(),
+  team_size: z.string().max(40).optional(),
+  message: z.string().max(2000).optional(),
+});
+
+app.post("/public/demo-requests", async (c) => {
+  const body = await c.req.json().catch(() => null);
+  const parsed = demoRequestBody.safeParse(body);
+  if (!parsed.success) {
+    return c.json({ error: "invalid_body", details: parsed.error.flatten() }, 400);
+  }
+
+  const [created] = await db
+    .insert(demoRequests)
+    .values({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      company: parsed.data.company ?? null,
+      teamSize: parsed.data.team_size ?? null,
+      message: parsed.data.message ?? null,
+    })
+    .returning();
+
+  return c.json({ ok: true, id: created.id, created_at: created.createdAt }, 201);
+});
 
 // ─── Admin (create users) ────────────────────────────────────────────────────
 

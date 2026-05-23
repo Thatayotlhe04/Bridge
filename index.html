@@ -6,7 +6,8 @@
 <title>Bridge — Context that follows your engineers across every AI tool</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/aquire" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0e0e12;
@@ -19,11 +20,11 @@
     --text-muted: #98989f;
     --text-faint: #5e5e66;
 
-    --accent: #4ade80;
-    --accent-deep: #16a34a;
-    --accent-light: #86efac;
-    --accent-glow: rgba(74, 222, 128, 0.4);
-    --accent-tint: rgba(74, 222, 128, 0.1);
+    --accent: #7ed8a6;
+    --accent-deep: #56b98a;
+    --accent-light: #b8ead1;
+    --accent-glow: rgba(126, 216, 166, 0.32);
+    --accent-tint: rgba(126, 216, 166, 0.12);
 
     /* Dark neumorphism — subtle but present */
     --neu-shadow-dark: rgba(0, 0, 0, 0.65);
@@ -34,7 +35,7 @@
     --neu-inset: inset 5px 5px 10px var(--neu-shadow-dark), inset -5px -5px 10px var(--neu-shadow-light);
     --neu-inset-sm: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
 
-    --sans: 'Montserrat', -apple-system, sans-serif;
+    --sans: 'Aquire', 'Audiowide', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, monospace;
     --pixel: 'Press Start 2P', 'JetBrains Mono', monospace;
   }
@@ -586,11 +587,11 @@
           Your team moves between Claude Code, Codex, Cursor and back — every switch resets their AI's memory. Bridge syncs conversation history across every tool, so institutional knowledge stays.
         </p>
         <div class="hero-ctas">
-          <a href="mailto:tsenangthatayotlhe04@gmail.com?subject=Bridge%20Demo%20Request" class="btn btn-primary btn-large">Book a demo <span class="arrow">→</span></a>
+          <a href="#demo-request" class="btn btn-primary btn-large">Book a demo <span class="arrow">→</span></a>
           <a href="#how" class="btn btn-large">See how it works</a>
         </div>
         <div class="hero-meta">
-          <span class="check">✓</span><span>SOC 2 Type II</span>
+          <span class="check">✓</span><span>Launch-ready setup</span>
           <span class="sep">·</span>
           <span class="check">✓</span><span>Self-hostable</span>
           <span class="sep">·</span>
@@ -669,6 +670,17 @@
     </div>
   </div>
 </header>
+
+<section class="std reveal" id="demo-videos">
+  <div class="container">
+    <div class="section-label">Live product demos</div>
+    <h2 class="section-title">Two quick videos: <span class="accent-text">setup + cross-tool recall</span>.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <iframe style="width:100%;min-height:280px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--neu-raised-sm);" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Bridge demo 1" allowfullscreen></iframe>
+      <iframe style="width:100%;min-height:280px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--neu-raised-sm);" src="https://www.youtube.com/embed/3GwjfUFyY6M" title="Bridge demo 2" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
 <!-- TRUSTED BY -->
 <section class="trusted-section">
@@ -788,7 +800,7 @@
                 <path d="M5 16 Q 0 16, 0 10 Q 0 4, 6 4 Q 7 0, 13 0 Q 20 0, 20 7 Q 26 7, 26 14 Q 26 20, 20 20 L 5 20 Q 0 20, 0 16 Z" fill="#86efac"/>
               </g>
               <text x="22" y="74" font-family="Montserrat, sans-serif" font-size="14" font-weight="600" fill="#fafafa">Bridge Cloud</text>
-              <text x="22" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="#98989f">SOC 2 · US/EU regions</text>
+              <text x="22" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="#98989f">Global regions</text>
             </g>
             <g transform="translate(640, 0)" filter="url(#neu-card)">
               <rect x="0" y="0" width="180" height="106" rx="14" fill="#14141a" stroke="#2a2a32" stroke-width="0.5"/>
@@ -982,9 +994,18 @@
       <h2>Your engineers shouldn't have to <span class="leaf">remember</span> for the AI.</h2>
       <p>See Bridge in a 20-minute demo. We'll walk through the architecture, the security model, and what cross-tool memory looks like in practice.</p>
       <div class="hero-ctas">
-        <a href="mailto:tsenangthatayotlhe04@gmail.com?subject=Bridge%20Demo%20Request" class="btn btn-large">Book a demo <span class="arrow">→</span></a>
-        <a href="#" class="btn btn-ghost btn-large">Read the technical brief</a>
+        <a href="#demo-request" class="btn btn-large">Book a demo <span class="arrow">→</span></a>
+        <a href="technical-brief.html" class="btn btn-ghost btn-large">Read the technical brief</a>
       </div>
+      <form id="demo-request" style="margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+        <input name="name" required placeholder="Name" style="padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);">
+        <input name="email" type="email" required placeholder="Work email" style="padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);">
+        <input name="company" placeholder="Company" style="padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);">
+        <input name="team_size" placeholder="Team size" style="padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);">
+        <textarea name="message" placeholder="What do you want to see in the demo?" style="grid-column:1/-1;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);"></textarea>
+        <button class="btn btn-primary btn-large" type="submit">Request demo <span class="arrow">→</span></button>
+        <p id="demo-status" style="align-self:center;color:var(--text-muted);"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -1002,6 +1023,8 @@
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#enterprise">Enterprise</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
     </div>
   </div>
 </footer>
@@ -1018,6 +1041,22 @@
   }, { threshold: 0.15 });
 
   reveals.forEach(reveal => observer.observe(reveal));
+
+  const demoForm = document.getElementById("demo-request");
+  const demoStatus = document.getElementById("demo-status");
+  demoForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    demoStatus.textContent = "Submitting...";
+    const data = Object.fromEntries(new FormData(demoForm).entries());
+    const apiBase = window.BRIDGE_API_BASE || "http://localhost:8787";
+    const res = await fetch(`${apiBase}/public/demo-requests`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    demoStatus.textContent = res.ok ? "Thanks — we got your request." : "Could not submit. Please email us directly.";
+    if (res.ok) demoForm.reset();
+  });
 
   // Tool name animation
   const toolNames = ['Claude Code', 'Codex', 'Cursor'];
