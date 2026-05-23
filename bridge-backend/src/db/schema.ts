@@ -101,4 +101,19 @@ export const memories = pgTable(
 export type User = typeof users.$inferSelect;
 export type Workspace = typeof workspaces.$inferSelect;
 export type Memory = typeof memories.$inferSelect;
+
+export const demoRequests = pgTable("demo_requests", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  company: text("company"),
+  teamSize: text("team_size"),
+  message: text("message"),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+});
+
+export type DemoRequest = typeof demoRequests.$inferSelect;
+export type NewDemoRequest = typeof demoRequests.$inferInsert;
 export type NewMemory = typeof memories.$inferInsert;
